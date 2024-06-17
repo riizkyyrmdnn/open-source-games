@@ -13,7 +13,7 @@ const HomeButton = () => {
       />
       <button
         id="home-btn"
-        onClick={() => openConfirm(() => (window.location.href = "/"))}
+        onClick={() => openConfirm(() => (window.location.href = "/open-source-games/"))}
       >
         <img
           src="https://www.svgrepo.com/show/483341/home.svg"
