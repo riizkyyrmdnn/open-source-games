@@ -1,0 +1,17 @@
+#home-btn {
+    @include flex(inline-flex, center, center, null);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 99;
+    background: $color-light;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    box-shadow: rgba($color: $color-gray, $alpha: 0.2) 0px 2px 8px 0px;
+
+    #home-icon {
+        width: 20px;
+        height: 20px;
+    }
+}

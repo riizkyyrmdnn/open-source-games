@@ -1,0 +1,74 @@
+.snake-eat-game {
+  $game-theme: forestgreen;
+  $game-button-fontsize: $font-size-small;
+  $game-button-rounded: $border-radius-2;
+  $game-button-fontweight: $font-weight-semibold;
+  overflow: hidden;
+  @extend %no-select;
+
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: $game-theme;
+ 
+    .buttons {
+      @include absolute(50%, 50%, 99);
+      @include flex(flex, center, center, 0.5rem);
+      flex-direction: column;
+      width: 100%;
+   
+      &--button {
+        font-size: $game-button-fontsize;
+        font-weight: $game-button-fontweight;
+        margin-inline: 0.2rem;
+        padding: 0.5rem 2.5rem;
+        background: $color-warning;
+        color: $color-white;
+        border-radius: $game-button-rounded;
+        box-shadow: 1px 3px 0px darken($color: $color-warning, $amount: 9);
+        &:first-child {
+          background: $color-success;
+          box-shadow: 1px 3px 0px darken($color: $color-success, $amount: 9);
+        }
+        &:last-child {
+          background: $color-danger;
+          box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+        }
+      }
+
+      &-start-btn {
+        display: block;
+        font-size: $game-button-fontsize;
+        margin-top: 0.8rem;
+        padding: 0.5rem 3.5rem;
+        color: $color-light;
+        background: $color-secondary;
+        border-radius: $border-pill;
+        box-shadow: 1px 3px 0px darken($color: $color-secondary, $amount: 9);
+      }
+    }
+
+    .button-restart {
+      @include absolute(50%, 50%, 99);
+        font-size: $game-button-fontsize;
+        margin-top: 0.8rem;
+        padding: 0.5rem 3.5rem;
+        color: $color-light;
+        background: $color-danger;
+        border-radius: $border-pill;
+        box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+    }
+
+    .buttons-control {
+      @include absolute(90%, 50%, 99);
+  
+      button {
+        font-size: 20px;
+        width: 38px;
+        height: 38px;
+        margin: 0.15rem;
+      }
+    }
+  }
+}

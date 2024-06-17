@@ -1,0 +1,129 @@
+.flip-bomb-game {
+  $game-title-size: clamp(2rem, 1.4643rem + 2.6786vw, 3.125rem);
+  $game-title-color: $color-light;
+  $game-card-size: clamp(2.8125rem, 2.3661rem + 2.2321vw, 3.75rem);
+  $game-button-fontsize: $font-size-small;
+  $game-button-fontweight: $font-weight-semibold;
+  $game-button-rounded: $border-radius-1;
+  $game-button-shadow: rgba($color: $color-black, $alpha: 0.12) 0px 1px 3px, rgba($color: $color-black, $alpha: 0.24) 0px 1px 2px;
+  $game-board-outline-color: $color-light;
+  $game-board-color: $color-light;
+  $game-board-rounded: $border-radius-2;
+  $game-board-card-shadow: rgba($color: $color-black, $alpha: 0.1) 0px 1px 3px 0px, rgba($color: $color-black, $alpha: 0.06) 0px 1px 2px 0px;
+  $game-button-start: $border-pill;
+  overflow: hidden;
+  @extend %no-select;
+
+  .game-container {
+    @include flex(flex, center, center, null);
+    width: 100vw;
+    height: 100vh;
+
+    .setup {
+      @include absolute(50%, 50%, 99);
+      width: 100%;
+      text-align: center;
+      &-title {
+        color: $game-title-color;
+        font-size: $game-title-size;
+      }
+
+      .buttons-mode {
+        margin-block: 1rem;
+        &--button {
+          font-size: $game-button-fontsize;
+          font-weight: $game-button-fontweight;
+          margin-inline: 0.2rem;
+          padding: 0.5rem 2.5rem;
+          background: $color-warning;
+          color: $color-white;
+          border-radius: $game-button-rounded;
+          box-shadow: 1px 3px 0px darken($color: $color-warning, $amount: 9);
+          &:first-child {
+            background: $color-success;
+            box-shadow: 1px 3px 0px darken($color: $color-success, $amount: 9);
+          }
+          &:last-child {
+            background: $color-danger;
+            box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+          }
+        }
+      }
+      
+        .start-btn {
+          font-size: $game-button-fontsize;
+          font-weight: $game-button-fontweight;
+          padding: 0.6rem 2.5rem;
+          background: $color-secondary;
+          color: $color-white;
+          border-radius: $game-button-start;
+          box-shadow: 1px 3px 0px darken($color: $color-secondary, $amount: 9);
+        }
+    }
+
+    .board {
+      display: grid;
+      gap: clamp(0.2rem, 0.0291rem + 0.7595vw, 0.5rem);
+      padding: 1rem;
+      outline: 5px solid rgba($color: $game-board-outline-color, $alpha: 0.3);
+      border-radius: $game-board-rounded;
+      background: $game-board-color;
+      
+      .card {
+        width: $game-card-size;
+        height: $game-card-size;
+        padding: 0.5rem;
+        perspective: 1000px;
+        background: $game-board-color;
+        box-shadow: $game-board-card-shadow;
+      }
+      
+      .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transform-style: preserve-3d;
+        transition: 0.5s ease-in-out;
+
+        %card-visibility {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          backface-visibility: hidden;
+        }
+    
+        .card-front {
+          @extend %card-visibility;
+          background: url("/logo.svg");
+          background-size: contain;
+        }
+        
+        .card-back {
+          @extend %card-visibility;
+          transform: rotateY(180deg);
+    
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+      
+      .flipped .card-inner {
+        transform: rotateY(180deg);
+      }
+    }
+
+    .restart-btn {
+      @include absolute(90%, 50%, 99);
+      font-size: $game-button-fontsize;
+      font-weight: $game-button-fontweight;
+      padding: 0.6rem 2.5rem;
+      background: $color-danger;
+      color: $color-white;
+      border-radius: $game-button-start;
+      box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+    }
+  }
+}

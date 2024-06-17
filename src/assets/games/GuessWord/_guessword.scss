@@ -1,0 +1,153 @@
+.guess-word-game {
+  $game-card-width: max-content;
+  $game-card-background: $color-light;
+  $game-card-shadow: 0 10px 25px rgba($color: $color-black, $alpha: 0.1);
+  $game-input-width: clamp(3.75rem, 3.4524rem + 1.4881vw, 4.375rem);
+  $game-input-text-color: $color-secondary;
+  $game-input-fontweight: $font-weight-semibold;
+  $game-input-shadow: rgba($color: $color-black, $alpha: 0.12) 0px 1px 3px, rgba($color: $color-black, $alpha: 0.24) 0px 1px 2px;
+  $game-input-placeholder-size: $font-size-xx-small;
+  $game-submit-button-color: $color-secondary-subtle;
+  $game-container-radius: $border-radius-1;
+  $game-board-outline-color: $color-light;
+  $game-button-fontsize: $font-size-small;
+  $game-button-reset-color: $color-danger;
+  $game-button-next-color: $color-warning;
+  $game-button-submit-color: $color-success;
+  $game-button-text-color: $color-light;
+  $game-level-fontsize: clamp(1.125rem, 0.9464rem + 0.8929vw, 1.5rem);
+  $game-level-fontweight: $font-weight-semibold;
+  overflow: hidden;
+  @extend %no-select;
+
+  .game-container {
+    text-align: center;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: $game-card-width;
+    background: $game-card-background;
+    outline: 5px solid rgba($color: $game-board-outline-color, $alpha: 0.3);
+    border-radius: $border-radius-2;
+    box-shadow: $game-card-shadow;
+    @extend %no-select;
+
+    .content {
+      padding: clamp(0rem, -0.7143rem + 3.5714vw, 1.5rem);
+  
+      .scores {
+        @include flex(flex, center, center, 0.5rem);
+        flex-wrap: wrap;
+        &--incorrect, &--correct, &--remaining, &--point {
+          padding: 0.3rem 0.6rem;
+          border-radius: $game-container-radius;
+          box-shadow: $game-input-shadow;
+          .wrong {
+            color: $color-danger;
+          }
+          .correct {
+            color: $color-success;
+          }
+          .remaining {
+            color: $color-warning;
+          }
+          .complete {
+            color: $color-primary;
+          }
+          .word-total {
+            color: $color-secondary;
+          }
+        }
+      }
+  
+      .inputs {
+        @include flex(flex, center, center, clamp(0.2rem, 0.0291rem + 0.7595vw, 0.5rem));
+        flex-wrap: wrap;
+        
+        input{
+          font-size: calc($game-input-width - 25px);
+          font-weight: $game-input-fontweight;
+          text-align: center;
+          text-transform: uppercase;
+          color: $game-input-text-color !important;
+          height: $game-input-width;
+          width: $game-input-width;
+          border: none;
+          border-radius: $game-container-radius;
+          box-shadow: $game-input-shadow;
+          &::placeholder {
+            @include absolute(18%, 18%, 50);
+            font-size: $game-input-placeholder-size;
+            color: rgba($color: $game-submit-button-color, $alpha: 0.6);
+          }
+          &:focus {
+            outline: 2px solid $game-submit-button-color;
+          }
+        }
+      }
+  
+      .word-hint, .word-clue {
+        text-align: left;
+        margin-block: 0.6rem;
+      }
+      .word-level {
+        font-size: $game-level-fontsize;
+        margin-block: 0.6rem;
+      }
+  
+      .submit-btn {
+        width: 100%;
+        margin-block: 0.2rem 0.8rem;
+        padding-block: 0.6rem;
+        color: $color-light;
+        background: $game-submit-button-color;
+        transition: 0.5s ease;
+        box-shadow: 1px 3px 0px darken($color: $game-submit-button-color, $amount: 9);
+      }
+  
+      .buttons {
+        @include flex(flex, center, center, 0.5rem);
+        flex-wrap: wrap;
+        width: 100%;
+  
+        %button-settings {
+          font-size: $game-button-fontsize;
+          font-weight: $game-level-fontweight;
+          padding: 0.6rem 2.5rem;
+          color: $color-white;
+          border-radius: $border-radius-2;
+        }
+    
+        &-button-reset {
+          @extend %button-settings;
+          background: $game-button-reset-color;
+          box-shadow: 1px 3px 0px darken($color: $game-button-reset-color, $amount: 9);
+        }
+        &-button-next {
+          @extend %button-settings;
+          background: $game-button-next-color;
+          box-shadow: 1px 3px 0 darken($color: $game-button-next-color, $amount: 9);
+        }
+        &-button-start {
+          @extend %button-settings;
+          background: $game-button-submit-color;
+          box-shadow: 1px 3px 0 darken($color: $game-button-submit-color, $amount: 9);
+        }
+      }
+    }
+
+    &--input-status {
+      display: none;
+      @include absolute(0%, 50%, 99);
+      padding: 0.6rem 3rem;
+      color: $color-light;
+      background: $color-danger;
+      font-size: $font-size-larger;
+      font-weight: $font-weight-bolder;
+      border-radius: $border-radius-2;
+      &.active {
+        display: block;
+        top: 25%;
+      }
+    }
+  }
+}

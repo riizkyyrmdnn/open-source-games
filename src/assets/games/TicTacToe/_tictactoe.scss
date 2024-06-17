@@ -1,0 +1,113 @@
+.tic-tac-toe-game {
+  $game-board-outline-color: $color-light;
+  $game-board-color: $color-light;
+  $game-board-rounded: $border-radius-2;
+  $game-button-fontsize: $font-size-small;
+  $game-button-rounded: $border-radius-2;
+  $game-button-fontweight: $font-weight-semibold;
+  $game-button-shadow: rgba(
+        $color: $color-black,
+        $alpha: 0.12,
+      )
+      0px 1px 3px,
+    rgba(
+        $color: $color-black,
+        $alpha: 0.24,
+      )
+      0px 1px 2px;
+  overflow: hidden;
+  @extend %no-select;
+
+  .game-container {
+    padding: 1rem;
+    outline: 5px solid rgba($color: $game-board-outline-color, $alpha: 0.3);
+    border-radius: $game-board-rounded;
+    background: $game-board-color;
+
+    .controls {
+      @include absolute(50%, 50%, 99);
+      width: 100%;
+
+      .buttons-mode {
+        @include flex(flex, center, center, 0.1rem);
+        &--button {
+          font-size: $game-button-fontsize;
+          font-weight: $game-button-fontweight;
+          margin-inline: 0.2rem;
+          padding: 0.5rem 2.5rem;
+          background: $color-warning;
+          color: $color-white;
+          border-radius: $game-button-rounded;
+          box-shadow: 1px 3px 0px darken($color: $color-warning, $amount: 9);
+          &:first-child {
+            background: $color-success;
+            box-shadow: 1px 3px 0px darken($color: $color-success, $amount: 9);
+          }
+          &:last-child {
+            background: $color-danger;
+            box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+          }
+        }
+      }
+
+      .buttons-choice {
+        @include flex(flex, center, center, 0.1rem);
+        margin-block: 1rem;
+        &--button {
+          font-size: $game-button-fontsize;
+          font-weight: $game-button-fontweight;
+          margin-inline: 0.2rem;
+          padding: 0.5rem 2.5rem;
+          background: $color-primary;
+          color: $color-white;
+          border-radius: $game-button-rounded;
+          box-shadow: 1px 3px 0px darken($color: $color-primary, $amount: 9);
+          &:first-child {
+            background: $color-secondary;
+            box-shadow: 1px 3px 0px darken($color: $color-secondary, $amount: 9);
+          }
+        }
+      }
+
+      .start-btn {
+        display: block;
+        margin-inline: auto;
+        font-size: $game-button-fontsize;
+        font-weight: $game-button-fontweight;
+        padding: 0.6rem 2.5rem;
+        background: $color-success;
+        color: $color-white;
+        border-radius: $border-pill;
+        box-shadow: 1px 3px 0px darken($color: $color-success, $amount: 9);
+      }
+    }
+
+    .reset-btn {
+      @include absolute(50%, 50%, 99);
+    }
+
+    .board {
+      display: grid;
+      .square {
+        position: relative;
+        width: clamp(3.4375rem, 2.5475rem + 3.9557vw, 5rem);
+        height: clamp(3.4375rem, 2.5475rem + 3.9557vw, 5rem);
+        background: #fff;
+        color: black;
+        font-size: 50px;
+        box-shadow: rgba($color: $color-black, $alpha: 0.1) 0px 1px 3px 0px,
+          rgba($color: $color-black, $alpha: 0.06) 0px 1px 2px 0px;
+        .symbol {
+          @include absolute(50%, 50%, 4);
+        }
+        &.winning {
+          color: $color-danger;
+        }
+      }
+    }
+
+    .game-info {
+      @include absolute(50%, 50%, 99);
+    }
+  }
+}

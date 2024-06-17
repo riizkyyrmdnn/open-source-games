@@ -1,0 +1,22 @@
+@mixin flex($display, $justify, $align, $gap) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin grid($display, $templateColumns, $templateSize, $justify, $align, $gap) {
+  display: $display;
+  grid-template-columns: repeat($templateColumns, $templateSize);
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin absolute($top, $left, $zindex) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+  z-index: $zindex;
+}

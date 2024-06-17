@@ -1,0 +1,191 @@
+$colors: (
+  "primary": #1ce568,
+  "primary-subtle": #1dd5a3,
+  "secondary": #1452c6,
+  "secondary-emphasis": #2168d1,
+  "secondary-subtle": #316ed2,
+  "black": #000000,
+  "white": #ffffff,
+  "light": #f8f9fa,
+  "dark": #090c0f,
+  "gray": #353a3f,
+  "danger": #ee0d0d,
+  "warning": #eec50d,
+  "success": #15ee0d,
+);
+$color-primary: map-get(
+  $map: $colors,
+  $key: "primary",
+);
+$color-primary-subtle: map-get(
+  $map: $colors,
+  $key: "primary-subtle",
+);
+$color-secondary: map-get(
+  $map: $colors,
+  $key: "secondary",
+);
+$color-secondary-emphasis: map-get(
+  $map: $colors,
+  $key: "secondary-emphasis",
+);
+$color-secondary-subtle: map-get(
+  $map: $colors,
+  $key: "secondary-subtle",
+);
+$color-black: map-get(
+  $map: $colors,
+  $key: "black",
+);
+$color-white: map-get(
+  $map: $colors,
+  $key: "white",
+);
+$color-light: map-get(
+  $map: $colors,
+  $key: "light",
+);
+$color-dark: map-get(
+  $map: $colors,
+  $key: "dark",
+);
+$color-gray: map-get(
+  $map: $colors,
+  $key: "gray",
+);
+$color-danger: map-get(
+  $map: $colors,
+  $key: "danger",
+);
+$color-warning: map-get(
+  $map: $colors,
+  $key: "warning",
+);
+$color-success: map-get(
+  $map: $colors,
+  $key: "success",
+);
+
+$font-weights: (
+  "light": 300,
+  "normal": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+  "bolder": 800,
+  "thick": 900,
+);
+$font-weight-light: map-get(
+  $map: $font-weights,
+  $key: "light",
+);
+$font-weight-normal: map-get(
+  $map: $font-weights,
+  $key: "normal",
+);
+$font-weight-medium: map-get(
+  $map: $font-weights,
+  $key: "medium",
+);
+$font-weight-semibold: map-get(
+  $map: $font-weights,
+  $key: "semibold",
+);
+$font-weight-bold: map-get(
+  $map: $font-weights,
+  $key: "bold",
+);
+$font-weight-bolder: map-get(
+  $map: $font-weights,
+  $key: "bolder",
+);
+$font-weight-thick: map-get(
+  $map: $font-weights,
+  $key: "thick",
+);
+
+$font-sizes: (
+  "xx-small": 10px,
+  "x-small": clamp(0.75rem, 0.6397rem + 0.4902vw, 0.875rem),
+  "smaller": clamp(0.84375rem, 0.7059rem + 0.6127vw, 1rem),
+  "small": clamp(0.9375rem, 0.7721rem + 0.7353vw, 1.125rem),
+  "medium": clamp(1.03125rem, 0.8382rem + 0.8578vw, 1.25rem),
+  "large": clamp(1.21875rem, 0.9706rem + 1.1029vw, 1.5rem),
+  "larger": clamp(1.3125rem, 1.0368rem + 1.2255vw, 1.625rem),
+  "x-large": clamp(1.5625rem, 1.2868rem + 1.2255vw, 1.875rem),
+  "xx-large": clamp(1.75rem, 1.364rem + 1.7157vw, 2.1875rem),
+);
+$font-size-xx-small: map-get(
+  $map: $font-sizes,
+  $key: "xx-small",
+);
+$font-size-x-small: map-get(
+  $map: $font-sizes,
+  $key: "x-small",
+);
+$font-size-smaller: map-get(
+  $map: $font-sizes,
+  $key: "smaller",
+);
+$font-size-small: map-get(
+  $map: $font-sizes,
+  $key: "small",
+);
+$font-size-medium: map-get(
+  $map: $font-sizes,
+  $key: "medium",
+);
+$font-size-large: map-get(
+  $map: $font-sizes,
+  $key: "large",
+);
+$font-size-larger: map-get(
+  $map: $font-sizes,
+  $key: "larger",
+);
+$font-size-x-large: map-get(
+  $map: $font-sizes,
+  $key: "x-large",
+);
+$font-size-xx-large: map-get(
+  $map: $font-sizes,
+  $key: "xx-large",
+);
+
+$border-radius: (
+  "rounded-1": 4px,
+  "rounded-2": 8px,
+  "rounded-3": 12px,
+  "rounded-4": 13px,
+  "rounded-5": 20px,
+  "circle": 50%,
+  "pill": 2rem,
+);
+$border-radius-1: map-get(
+  $map: $border-radius,
+  $key: "rounded-1",
+);
+$border-radius-2: map-get(
+  $map: $border-radius,
+  $key: "rounded-2",
+);
+$border-radius-3: map-get(
+  $map: $border-radius,
+  $key: "rounded-3",
+);
+$border-radius-4: map-get(
+  $map: $border-radius,
+  $key: "rounded-4",
+);
+$border-radius-5: map-get(
+  $map: $border-radius,
+  $key: "rounded-5",
+);
+$border-circle: map-get(
+  $map: $border-radius,
+  $key: "circle",
+);
+$border-pill: map-get(
+  $map: $border-radius,
+  $key: "pill",
+);

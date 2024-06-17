@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  font: normal normal 400 100% "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url("/logo.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-weight: $font-weight-thick !important;
+}
+h2 {
+  font-weight: $font-weight-bolder !important;
+}
+h3 {
+  font-weight: $font-weight-bold !important;
+}
+h4 {
+  font-weight: $font-weight-semibold !important;
+}
+h5, h6, button {
+  font-weight: $font-weight-medium !important;
+}
+
+ul > li {
+  list-style-type: none;
+}
+ol {
+  list-style-position: inside;
+}
+
+a {
+  text-decoration: none;
+}
+
+.wrapper {
+  @include flex(flex, center, center, null);
+  min-height: 100vh;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  
+  &:disabled {
+    cursor: not-allowed;
+    &:not(.flappy-bird-game *, .flip-bomb-game *, .memory-card-game *) {
+      filter: grayscale(50%);
+      opacity: 0.7;
+    }
+  }
+  &:active:not(.flappy-bird-game *, .flip-bomb-game *, .memory-card-game *) {
+    filter: brightness(80%);
+  }
+}

@@ -1,0 +1,95 @@
+.flappy-bird-game {
+  $game-theme: skyblue;
+  $game-over-color: $color-danger;
+  $game-score-color: $color-light;
+  $game-score-font-weight: $font-weight-semibold;
+  $game-status: clamp(2.5rem, 2.1961rem + 1.2966vw, 3rem);
+  $game-score: clamp(1.125rem, 0.8591rem + 1.1345vw, 1.5625rem);
+  $game-button-fontsize: $font-size-small;
+  $game-button-fontweight: $font-weight-semibold;
+  $game-button-shadow: rgba($color: $color-black, $alpha: 0.1) 0px 4px 6px -1px, rgba($color: $color-black, $alpha: 0.06) 0px 2px 4px -1px;
+  $game-button-rounded: $border-pill;
+  $game-start-button-color: $color-success;
+  $game-restart-button-color: $color-danger;
+  $game-restart-button-text: $color-light;
+  overflow: hidden;
+  @extend %no-select;
+
+  .game-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: $game-theme;
+
+    .control-container {
+      @include absolute(50%, 50%, 99);
+      width: 100%;
+      text-align: center;
+
+      &-start-btn {
+        font-size: $game-button-fontsize;
+        font-weight: $game-button-fontweight;
+        padding: 0.5rem 2.5rem;
+        background: $color-warning;
+        color: $color-white;
+        border-radius: $game-button-rounded;
+        box-shadow: 1px 3px 0px darken($color: $color-warning, $amount: 9);
+      }
+    }
+
+    .game-controller {
+      position: relative;
+      background: $game-theme;
+      overflow: hidden;
+      &--bird {
+        position: absolute;
+        left: 50px;
+      }
+      &--pipe-top {
+        position: absolute;
+        top: 0;
+        transform: rotate(180deg);
+      }
+      &--pipe-bottom {
+        position: absolute;
+        bottom: 0;
+      }
+      &--grass {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 6%;
+        background: green;
+      }
+      &--restart {
+        @include absolute(70%, 50%, null);
+      }
+
+      &--score {
+        @include absolute(30px, 50%, null);
+        font-size: $game-score;
+        font-weight: $game-score-font-weight;
+        color: $game-score-color;
+        text-shadow: 1px 2px 1px $color-dark;
+      }
+
+      &--status {
+        @include absolute(50%, 50%, 99);
+        font-size: $game-status;
+        font-weight: $game-score-font-weight;
+        color: $game-over-color;
+      }
+
+      &-restart-btn {
+        @include absolute(60%, 50%, 99);
+        font-size: $game-button-fontsize;
+        font-weight: $game-button-fontweight;
+        padding: 0.5rem 2.5rem;
+        color: $color-white;
+        background: $color-danger;
+        border-radius: $game-button-rounded;
+        box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+      }
+    }
+  }
+}

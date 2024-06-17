@@ -1,0 +1,21 @@
+.header-image {
+  width: 100%;
+  text-align: center;
+  padding-block: 2.5rem;
+  background: map-get($map: $colors, $key: "secondary");
+}
+
+.start-timer {
+  @include absolute(50%, 50%, 99);
+  font-size: clamp(3.75rem, 3.3701rem + 1.6207vw, 4.375rem);
+  font-weight: $font-weight-thick;
+  text-shadow: 1px 2px 1px $color-dark;
+  color: $color-light;
+}
+
+%no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

@@ -1,0 +1,129 @@
+.rock-paper-scissors-game {
+  $game-container-width: clamp(23.4375rem, 13.9409rem + 40.5186vw, 39.0625rem);
+  $game-container-color: $color-light;
+  $game-container-rounded: $border-radius-2;
+  $game-button-fontsize: $font-size-small;
+  $game-button-rounded: $border-radius-2;
+  $game-button-fontweight: $font-weight-semibold;
+  $game-score-fontsize: clamp(4.375rem, 3.4821rem + 4.4643vw, 6.25rem);
+  $game-image-size: clamp(4.6875rem, 3.9435rem + 3.7202vw, 6.25rem);
+  $game-element-size: clamp(2.8125rem, 2.0685rem + 3.7202vw, 4.375rem);
+
+  .game-container {
+    width: $game-container-width;
+    height: max-content;
+    text-align: center;
+    background: $game-container-color;
+    outline: 5px solid rgba($color: $color-light, $alpha: 0.3);
+    border-radius: $game-container-rounded;
+    @extend %no-select;
+
+    .buttons-mode, .buttons-options {
+      @include flex(flex, center, center, 0.2rem);
+      flex-wrap: wrap;
+      margin-block: 1rem;
+      &--button {
+        font-size: $game-button-fontsize;
+        font-weight: $game-button-fontweight;
+        margin-inline: 0.2rem;
+        padding: 0.5rem 2.5rem;
+        background: $color-warning;
+        color: $color-white;
+        border-radius: $game-button-rounded;
+        box-shadow: 1px 3px 0px darken($color: $color-warning, $amount: 9);
+        &:first-child {
+          background: $color-success;
+          box-shadow: 1px 3px 0px darken($color: $color-success, $amount: 9);
+        }
+        &:last-child {
+          background: $color-danger;
+          box-shadow: 1px 3px 0px darken($color: $color-danger, $amount: 9);
+        }
+      }
+    }
+
+    .score-display {
+      @include flex(flex, center, center, clamp(0.5rem, 0.2619rem + 1.1905vw, 1rem));
+      margin-block: 1.5rem;
+
+      .score {
+        @include flex(inline-flex, center, center, null);
+        flex-direction: column;
+        background: $color-white;
+        width: $game-score-fontsize;
+        height: $game-score-fontsize;
+        border-radius: $game-button-rounded;
+        box-shadow: rgba($color: $color-black, $alpha: 0.12) 0px 1px 3px, rgba($color: $color-black, $alpha: 0.24) 0px 1px 2px;
+
+        &--number {
+          font-size: calc($game-score-fontsize - clamp(2.8125rem, 2.5149rem + 1.4881vw, 3.4375rem));
+          font-weight: $font-weight-bold;
+        }
+
+        &--title {
+          font-size: calc($game-score-fontsize - 85px);
+          font-weight: $font-weight-medium;
+        }
+      }
+    }
+
+    .player-vs-computer {
+      @include flex(flex, center, center, clamp(0.9375rem, -0.392rem + 5.6726vw, 3.125rem));
+
+      .middle-text {
+        font-size: clamp(2.375rem, 2.0179rem + 1.7857vw, 3.125rem);
+      }
+
+      #player-choice,
+      #computer-choice {
+        @include flex(inline-flex, center, center, null);
+        width: $game-image-size;
+        height: $game-image-size;
+        padding: 0.8rem;
+        background: $color-white;
+        border-radius: $game-button-rounded;
+        box-shadow: rgba($color: $color-black, $alpha: 0.12) 0px 1px 3px, rgba($color: $color-black, $alpha: 0.24) 0px 1px 2px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .element-display {
+      @include flex(flex, center, center, clamp(0.25rem, 0.131rem + 0.5952vw, 0.5rem));
+      flex-wrap: wrap;
+      width: 100%;
+      margin-block: 1rem;
+
+      .element {
+        @include flex(inline-flex, center, center, null);
+        width: $game-element-size;
+        height: $game-element-size;
+        padding: 0.5rem;
+        background: $color-white;
+        box-shadow: rgba($color: $color-black, $alpha: 0.12) 0px 1px 3px, rgba($color: $color-black, $alpha: 0.24) 0px 1px 2px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+
+    .status {
+      @include absolute(50%, 50%, 99);
+      display: none;
+      padding: 0.5rem 2rem;
+      font-weight: $font-weight-thick;
+      color: $color-dark;
+      background: $color-light;
+      outline: 3px solid rgba($color: $color-white, $alpha: 0.3);
+      border-radius: $border-radius-2;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
