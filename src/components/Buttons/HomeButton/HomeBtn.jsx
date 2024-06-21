@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import useConfirm from "@util/hooks/useConfirm";
 import ConfirmPopup from "@component/PopUp/Popup";
 import "@style/main.scss";
 
 const HomeButton = () => {
+  const navigate = useNavigate();
   const { isOpen, openConfirm, closeConfirm, handleConfirm } = useConfirm();
   return (
     <>
@@ -13,7 +15,7 @@ const HomeButton = () => {
       />
       <button
         id="home-btn"
-        onClick={() => openConfirm(() => (window.location.href = "/open-source-games/"))}
+        onClick={() => openConfirm(() => navigate("/"))}
       >
         <img
           src="https://www.svgrepo.com/show/483341/home.svg"

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import useCountdownTimer from "@util/hooks/useTimer";
 import HomeButton from "@component/Buttons/HomeButton/HomeBtn";
 import Overlay from "@component/Overlay/Overlay";
-import Bird from "./image/bird.gif";
 import Pipe from "./image/pipe.png";
 import "@style/main.scss";
 
@@ -36,6 +35,8 @@ export default function FlappyBirdGame() {
   
   const [startGame, setStartGame] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+
+  const Bird = "https://orig00.deviantart.net/a839/f/2015/213/c/a/flappy_bird_by_jubaaj-d93bpnj.png";
 
   useEffect(() => {
     const handleResize = () => {

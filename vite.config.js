@@ -7,11 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 export default defineConfig({
+  base: "/open-source-games/",
   plugins: [react()],
   build: {
     outDir: "dist",
   },
-  base: "/open-source-games/",
   resolve: {
     alias: {
       '@asset': path.resolve(__dirname, 'src/assets'),
